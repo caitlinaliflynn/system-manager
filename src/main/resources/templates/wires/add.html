@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+    <main>
+        <h3>Add Wire</h3>
+        <form action="/wire-log/add" method="POST">
+            <div class="form-item">
+                <label th:for="accountTitle">Account Title </label>
+                <input th:field="${wireLog.accountTitle}">
+                <p class="error" th:errors="${wireLog.accountTitle}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="amount">Amount </label>
+                <input th:field="${wireLog.amount}">
+                <p class="error" th:errors="${wireLog.amount}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="ofacCheckedBy">OFAC Checked By </label>
+                <input th:field="${wireLog.ofacCheckedBy}">
+                <p class="error" th:errors="${wireLog.ofacCheckedBy}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="originatedBy">Originated By </label>
+                <input th:field="${wireLog.originatedBy}">
+                <p class="error" th:errors="${wireLog.originatedBy}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="timeOriginated">Time Originated </label>
+                <input th:field="${wireLog.timeOriginated}" type="time">
+                <p class="error" th:errors="${wireLog.timeOriginated}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="verifiedBy">Verified By </label>
+                <input th:field="${wireLog.verifiedBy}">
+                <p class="error" th:errors="${wireLog.verifiedBy}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="timeVerified">Time Verified </label>
+                <input th:field="${wireLog.timeVerified}" type="time">
+                <p class="error" th:errors="${wireLog.timeVerified}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="releasedBy">Released By </label>
+                <input th:field="${wireLog.releasedBy}">
+                <p class="error" th:errors="${wireLog.releasedBy}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="timeReleased">Time Released </label>
+                <input th:field="${wireLog.timeReleased}" type="time">
+                <p class="error" th:errors="${wireLog.timeReleased}"></p>
+            </div>
+            <button type="submit">Add</button>
+        </form>
+    </main>
+
+    <div><a class="navlink" href="/wire-log">View Wires</a></div>
+    <div><a class="navlink" href="/wire-log/delete">Delete Wires</a></div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Credit Card Log</h3>
+    <p th:unless="${creditCardLogList} and ${creditCardLogList.size()}">
+        <em>No credit card transactions to display.</em>
+    </p>
+    <th:block th:if="${creditCardLogList} and ${creditCardLogList.size()}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Customer Name</th>
+                <th>Card Number</th>
+                <th>Amount</th>
+                <th>Payment Type</th>
+                <th>Employee Taken By</th>
+                <th>Payment Made By</th>
+            </tr>
+            </thead>
+            <tr th:each="creditLog: ${creditCardLogList}">
+                <td th:text="${creditLog.id}"></td>
+                <td th:text="${creditLog.customerName}"></td>
+                <td th:text="${creditLog.cardNumber}"></td>
+                <td th:text="${creditLog.amount}"></td>
+                <td th:text="${creditLog.paymentType.displayName}"></td>
+                <td th:text="${creditLog.employeeTakenBy.toUpperCase}"></td>
+                <td th:text="${creditLog.paymentMadeBy.toUpperCase}"></td>
+            </tr>
+        </table>
+    </th:block>
+</main>
+
+<div><a class="navlink" href="/credit-card-log/add">Add Credit Card Transactions</a></div>
+<div><a class="navlink" href="/credit-card-log/delete">Delete Credit Card Transactions</a></div>
+
+</body>
+</html>

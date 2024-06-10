@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Delete Return Mail</h3>
+    <p th:unless="${returnMailLogList} and ${returnMailLogList.size()}">
+        <em>No return mail to display.</em>
+    </p>
+    <form action="/return-mail-log/delete" method="POST">
+        <th:block th:each="mail : ${returnMailLogList}">
+            <label>
+                <input type="checkbox" name="returnMailIds" th:value="${mail.id}" />
+                <span th:text="${mail}"></span>
+            </label><br />
+        </th:block>
+
+        <button type="submit">Delete</button>
+    </form>
+</main>
+
+<div><a class="navlink" href="/return-mail-log">View Return Mail</a></div>
+<div><a class="navlink" href="/return-mail-log/add">Add Return Mail</a></div>
+
+</body>
+</html>

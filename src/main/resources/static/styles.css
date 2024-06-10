@@ -1,0 +1,34 @@
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #DDD;
+    }
+    tr {
+      border-bottom: 1px solid #ddd;
+    }
+    tr:hover {background-color: #41B3A3;}
+
+    .table-sortable th {
+        cursor: pointer;
+    }
+
+    .table-sortable .th-sort-asc::after {
+        content: "\25b4";
+    }
+
+    .table-sortable .th-sort-desc::after {
+        content: "\25be";
+    }
+
+    .table-sortable .th-sort-asc::after,
+    .table-sortable .th-sort-desc::after {
+        margin-left: 5px;
+    }
+
+    errors {
+        color: red;
+    }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+    <main>
+        <h3>Wire Log</h3>
+        <p th:unless="${wireLogList} and ${wireLogList.size()}">
+            <em>No wires to display.</em>
+        </p>
+        <th:block th:if="${wireLogList} and ${wireLogList.size()}">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Wire ID</th>
+                    <th>Account Title</th>
+                    <th>Amount</th>
+                    <th>OFAC Checked By</th>
+                    <th>Originated By</th>
+                    <th>Time Originated</th>
+                    <th>Verified By</th>
+                    <th>Time Verified</th>
+                    <th>Released By</th>
+                    <th>Time Released</th>
+                </tr>
+                </thead>
+                <tr th:each="log: ${wireLogList}">
+                    <td th:text="${log.id}"></td>
+                    <td th:text="${log.accountTitle}"></td>
+                    <td th:text="${log.amount}"></td>
+                    <td th:text="${log.ofacCheckedBy.toUpperCase}"></td>
+                    <td th:text="${log.originatedBy.toUpperCase}"></td>
+                    <td th:text="${log.timeOriginated}"></td>
+                    <td th:text="${log.verifiedBy.toUpperCase}"></td>
+                    <td th:text="${log.timeVerified}"></td>
+                    <td th:text="${log.releasedBy.toUpperCase}"></td>
+                    <td th:text="${log.timeReleased}"></td>
+                </tr>
+            </table>
+        </th:block>
+    </main>
+
+    <div><a class="navlink" href="/wire-log/add">Add Wires</a></div>
+    <div><a class="navlink" href="/wire-log/delete">Delete Wires</a></div>
+
+</body>
+</html>

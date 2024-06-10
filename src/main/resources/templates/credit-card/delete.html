@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Delete Credit Card Transaction</h3>
+    <p th:unless="${creditCardLogList} and ${creditCardLogList.size()}">
+        <em>No credit card transactions to display.</em>
+    </p>
+    <form action="/credit-card-log/delete" method="POST">
+        <th:block th:each="creditLog : ${creditCardLogList}">
+            <label>
+                <input type="checkbox" name="creditCardIds" th:value="${creditLog.id}" />
+                <span th:text="${creditLog}"></span>
+            </label><br />
+        </th:block>
+
+        <button type="submit">Delete</button>
+    </form>
+</main>
+
+<div><a class="navlink" href="/credit-card-log">View Credit Card Log</a></div>
+<div><a class="navlink" href="/credit-card-log/add">Add Credit Card Transactions</a></div>
+
+</body>
+</html>

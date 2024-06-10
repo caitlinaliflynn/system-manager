@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Return Mail Log</h3>
+    <p th:unless="${returnMailLogList} and ${returnMailLogList.size()}">
+        <em>No return mail to display.</em>
+    </p>
+    <th:block th:if="${returnMailLogList} and ${returnMailLogList.size()}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Return Mail ID</th>
+                <th>Account Title</th>
+                <th>First Letter Sent</th>
+                <th>Second Letter Sent</th>
+                <th>Third Letter Sent</th>
+                <th>Enrolled in OLB</th>
+                <th>Account Status</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tr th:each="mail: ${returnMailLogList}">
+                <td th:text="${mail.id}"></td>
+                <td th:text="${mail.accountTitle}"></td>
+                <td th:text="${mail.firstLetterDate}"></td>
+                <td th:text="${mail.secondLetterDate}"></td>
+                <td th:text="${mail.thirdLetterDate}"></td>
+                <td th:text="${mail.onlineBanking}"></td>
+                <td th:text="${mail.accountStatus}"></td>
+                <td th:text="${mail.notes}"></td>
+            </tr>
+        </table>
+    </th:block>
+</main>
+
+<div><a class="navlink" href="/return-mail-log/add">Add Return Mail</a></div>
+<div><a class="navlink" href="/return-mail-log/delete">Delete Return Mail</a></div>
+
+</body>
+</html>

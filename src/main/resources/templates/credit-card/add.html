@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Add Credit Card Transaction</h3>
+    <form action="/credit-card-log/add" method="POST">
+        <div class="form-item">
+            <label th:for="customerName">Customer Name </label>
+            <input th:field="${creditCardLog.customerName}">
+            <p class="error" th:errors="${creditCardLog.customerName}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="cardNumber">Card Number </label>
+            <input th:field="${creditCardLog.cardNumber}">
+        </div>
+        <div class="form-item">
+            <label th:for="amount">Amount </label>
+            <input th:field="${creditCardLog.amount}">
+        </div>
+        <div>
+            <label>Payment Type
+                <select th:field="${creditCardLog.paymentType}">
+                    <option th:each="type : ${paymentTypes}"
+                            th:value="${type}"
+                            th:text="${type.displayName}"
+                    ></option>
+                </select>
+            </label>
+        </div>
+        <div class="form-item">
+            <label th:for="employeeTakenBy">Employee Taken By </label>
+            <input th:field="${creditCardLog.employeeTakenBy}">
+            <p class="error" th:errors="${creditCardLog.employeeTakenBy}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="paymentMadeBy">Payment Made By </label>
+            <input th:field="${creditCardLog.paymentMadeBy}">
+            <p class="error" th:errors="${creditCardLog.paymentMadeBy}"></p>
+        </div>
+        <button type="submit">Add</button>
+    </form>
+</main>
+
+<div><a class="navlink" href="/credit-card-log">View Credit Card Log</a></div>
+<div><a class="navlink" href="/credit-card-log/delete">Delete Credit Card Transactions</a></div>
+
+
+</body>
+</html>

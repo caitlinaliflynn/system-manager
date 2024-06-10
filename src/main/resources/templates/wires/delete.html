@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+    <main>
+        <h3>Delete Wire</h3>
+        <p th:unless="${wireLogList} and ${wireLogList.size()}">
+            <em>No wires to display.</em>
+        </p>
+        <form action="/wire-log/delete" method="POST">
+            <th:block th:each="log : ${wireLogList}">
+                <label>
+                    <input type="checkbox" name="wireIds" th:value="${log.id}" />
+                    <span th:text="${log}"></span>
+                </label><br />
+            </th:block>
+
+            <button type="submit">Delete</button>
+        </form>
+    </main>
+
+    <div><a class="navlink" href="/wire-log">View Wires</a></div>
+    <div><a class="navlink" href="/wire-log/add">Add Wires</a></div>
+
+</body>
+</html>

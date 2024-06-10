@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+    <header th:replace="~{fragments :: header}"></header>
+
+    <main>
+        <h3>Add Transfer</h3>
+        <form action="/transfer-log/add" method="POST">
+            <div class="form-item">
+                <label th:for="accountTitle">Account Title </label>
+                <input th:field="${transferLog.accountTitle}">
+                <p class="error" th:errors="${transferLog.accountTitle}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="customerName">Customer Name </label>
+                <input th:field="${transferLog.customerName}">
+                <p class="error" th:errors="${transferLog.customerName}"></p>
+            </div>
+            <div>
+                <label>Method Received
+                    <select th:field="${transferLog.methodReceivedBy}">
+                        <option th:each="method : ${methodsReceivedBy}"
+                                th:value="${method}"
+                                th:text="${method.displayName}"
+                        ></option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-item">
+                <div>Account Status</div>
+                <label th:for="accountStatus">Open </label>
+                <input th:field="${transferLog.accountStatus}" type="radio" value="Open">
+                <label th:for="accountStatus">Closed </label>
+                <input th:field="${transferLog.accountStatus}" type="radio" value="Closed">
+                <p class="error" th:errors="${transferLog.accountStatus}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="accountFrom">Account From </label>
+                <input th:field="${transferLog.accountFrom}">
+            </div>
+            <div class="form-item">
+                <label th:for="accountTo">Account To </label>
+                <input th:field="${transferLog.accountTo}">
+            </div>
+            <div class="form-item">
+                <label th:for="amount">Amount </label>
+                <input th:field="${transferLog.amount}">
+            </div>
+            <div class="form-item">
+                <label th:for="employeeTakenBy">Employee Taken By </label>
+                <input th:field="${transferLog.employeeTakenBy}">
+                <p class="error" th:errors="${transferLog.employeeTakenBy}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="employeeInputBy">Employee Input By </label>
+                <input th:field="${transferLog.employeeInputBy}">
+                <p class="error" th:errors="${transferLog.employeeInputBy}"></p>
+            </div>
+            <button type="submit">Add</button>
+        </form>
+    </main>
+
+    <div><a class="navlink" href="/transfer-log">View Transfers</a></div>
+    <div><a class="navlink" href="/transfer-log/delete">Delete Transfers</a></div>
+
+
+</body>
+</html>

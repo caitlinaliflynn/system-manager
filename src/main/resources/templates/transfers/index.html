@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+    <header th:replace="~{fragments :: header}"></header>
+
+    <main>
+        <h3>Transfer Log</h3>
+        <p th:unless="${transferLogList} and ${transferLogList.size()}">
+            <em>No transfers to display.</em>
+        </p>
+        <th:block th:if="${transferLogList} and ${transferLogList.size()}">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Transfer ID</th>
+                        <th>Account Title</th>
+                        <th>Customer Name</th>
+                        <th>Method Received</th>
+                        <th>Account Status</th>
+                        <th>Account From</th>
+                        <th>Account To</th>
+                        <th>Amount</th>
+                        <th>Employee Taken By</th>
+                        <th>Employee Input By</th>
+                    </tr>
+                </thead>
+                <tr th:each="transfer: ${transferLogList}">
+                    <td th:text="${transfer.id}"></td>
+                    <td th:text="${transfer.accountTitle}"></td>
+                    <td th:text="${transfer.customerName}"></td>
+                    <td th:text="${transfer.methodReceivedBy.displayName}"></td>
+                    <td th:text="${transfer.accountStatus}"></td>
+                    <td th:text="${transfer.accountFrom}"></td>
+                    <td th:text="${transfer.accountTo}"></td>
+                    <td th:text="${transfer.amount}"></td>
+                    <td th:text="${transfer.employeeTakenBy.toUpperCase}"></td>
+                    <td th:text="${transfer.employeeInputBy.toUpperCase}"></td>
+                </tr>
+            </table>
+        </th:block>
+    </main>
+
+    <div><a class="navlink" href="/transfer-log/add">Add Transfers</a></div>
+    <div><a class="navlink" href="/transfer-log/delete">Delete Transfers</a></div>
+
+</body>
+</html>

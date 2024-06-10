@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+    <main>
+        <h3>Add Return Mail</h3>
+        <form action="/return-mail-log/add" method="POST">
+            <div class="form-item">
+                <label th:for="accountTitle">Account Title </label>
+                <input th:field="${returnMailLog.accountTitle}">
+                <p class="error" th:errors="${returnMailLog.accountTitle}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="firstLetterDate">First Letter Sent </label>
+                <input th:field="${returnMailLog.firstLetterDate}" type="date">
+                <p class="error" th:errors="${returnMailLog.firstLetterDate}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="secondLetterDate">Second Letter Sent </label>
+                <input th:field="${returnMailLog.secondLetterDate}" type="date">
+                <p class="error" th:errors="${returnMailLog.secondLetterDate}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="thirdLetterDate">Third Letter Sent </label>
+                <input th:field="${returnMailLog.thirdLetterDate}" type="date">
+                <p class="error" th:errors="${returnMailLog.thirdLetterDate}"></p>
+            </div>
+            <div class="form-item">
+                <div>Account Status</div>
+                <label th:for="accountStatus">Open </label>
+                <input th:field="${returnMailLog.accountStatus}" type="radio" value="Open">
+                <label th:for="accountStatus">Closed </label>
+                <input th:field="${returnMailLog.accountStatus}" type="radio" value="Closed">
+                <p class="error" th:errors="${returnMailLog.accountStatus}"></p>
+            </div>
+            <div class="form-item">
+                <div>Enrolled in OLD</div>
+                <label th:for="onlineBanking">Yes </label>
+                <input th:field="${returnMailLog.onlineBanking}" type="radio" value="Yes">
+                <label th:for="onlineBanking">No </label>
+                <input th:field="${returnMailLog.onlineBanking}" type="radio" value="No">
+                <p class="error" th:errors="${returnMailLog.onlineBanking}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="notes">Notes </label>
+                <input th:field="${returnMailLog.notes}">
+                <p class="error" th:errors="${returnMailLog.notes}"></p>
+            </div>
+            <button type="submit">Add</button>
+        </form>
+    </main>
+
+    <div><a class="navlink" href="/return-mail-log">View Return Mail</a></div>
+    <div><a class="navlink" href="/return-mail-log/delete">Delete Return Mail</a></div>
+
+
+</body>
+</html>
