@@ -31,7 +31,7 @@ public class TransferLogController {
     }
 
     @PostMapping("/add")
-    public String addTransferLog(@ModelAttribute @Valid TransferLog transferLog, Errors errors) {
+    public String processAddTransferLogForm(@ModelAttribute @Valid TransferLog transferLog, Errors errors) {
         if (errors.hasErrors()) {
             return "transfers/add";
         } else {

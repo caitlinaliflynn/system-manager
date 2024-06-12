@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Add Employee</h3>
+    <form action="/employee/add" method="POST">
+        <div class="form-item">
+            <label th:for="firstName">First Name </label>
+            <input th:field="${employee.firstName}">
+            <p class="error" th:errors="${employee.firstName}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="firstName">Last Name </label>
+            <input th:field="${employee.lastName}">
+            <p class="error" th:errors="${employee.lastName}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="dateOfBirth">Date of Birth </label>
+            <input th:field="${employee.dateOfBirth}" type="date">
+            <p class="error" th:errors="${employee.dateOfBirth}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="phoneNumber">Phone Number </label>
+            <input th:field="${employee.phoneNumber}" type="tel">
+            <p class="error" th:errors="${employee.phoneNumber}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="address">Address </label>
+            <input th:field="${employee.address}">
+            <p class="error" th:errors="${employee.address}"></p>
+        </div>
+        <button type="submit">Add</button>
+    </form>
+</main>
+
+<div><a class="navlink" href="/employee">View Employee Log</a></div>
+<div><a class="navlink" href="/employee/delete">Delete Employee</a></div>
+
+
+</body>
+</html>

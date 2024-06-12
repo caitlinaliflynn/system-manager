@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Delete Employee</h3>
+    <p th:unless="${employeeList} and ${employeeList.size()}">
+        <em>No employees to display.</em>
+    </p>
+    <form action="/employee/delete" method="POST">
+        <th:block th:each="employee : ${employeeList}">
+            <label>
+                <input type="checkbox" name="employeeIds" th:value="${employee.id}" />
+                <span th:text="${employee}"></span>
+            </label><br />
+        </th:block>
+
+        <button type="submit">Delete</button>
+    </form>
+</main>
+
+<div><a class="navlink" href="/employee">View Employee Log</a></div>
+<div><a class="navlink" href="/employee/add">Add Employee</a></div>
+
+</body>
+</html>

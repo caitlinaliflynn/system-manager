@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Employee Log</h3>
+    <p th:unless="${employeeList} and ${employeeList.size()}">
+        <em>No employees to display.</em>
+    </p>
+    <th:block th:if="${employeeList} and ${employeeList.size()}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tr th:each="employee: ${employeeList}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.firstName}"></td>
+                <td th:text="${employee.lastName}"></td>
+                <td th:text="${employee.dateOfBirth}"></td>
+                <td th:text="${employee.phoneNumber}"></td>
+                <td th:text="${employee.address}"></td>
+            </tr>
+        </table>
+    </th:block>
+</main>
+
+<div><a class="navlink" href="/employee/add">Add Employee</a></div>
+<div><a class="navlink" href="/employee/delete">Delete Employee</a></div>
+
+</body>
+</html>
