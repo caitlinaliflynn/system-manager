@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Delete ACH Return Item</h3>
+    <p th:unless="${achReturnItemsList} and ${achReturnItemsList.size()}">
+        <em>No ach return items to display.</em>
+    </p>
+    <form action="/ach-return-items/delete" method="POST">
+        <th:block th:each="achReturnItem : ${achReturnItemsList}">
+            <label>
+                <input type="checkbox" name="achReturnItemsIds" th:value="${achReturnItem.id}" />
+                <span th:text="${achReturnItem}"></span>
+            </label><br />
+        </th:block>
+
+        <button type="submit">Delete</button>
+    </form>
+</main>
+
+<div><a class="navlink" href="/ach-return-items">View ACH Return Items</a></div>
+<div><a class="navlink" href="/ach-return-items/add">Add ACH Return Item</a></div>
+
+</body>
+</html>

@@ -31,7 +31,7 @@ public class CreditCardLogController {
     }
 
     @PostMapping("/add")
-    public String addCreditCardLog(@ModelAttribute @Valid CreditCardLog creditCardLog, Errors errors) {
+    public String processAddCreditCardLogForm(@ModelAttribute @Valid CreditCardLog creditCardLog, Errors errors) {
         if (errors.hasErrors()) {
             return "credit-card/add";
         } else {

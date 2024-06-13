@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Mobile Deposit Permanent Increases</h3>
+    <p th:unless="${mobileDepositPermanentIncreaseList} and ${mobileDepositPermanentIncreaseList.size()}">
+        <em>No mobile deposit permanent increases to display.</em>
+    </p>
+    <form action="/mobile-deposit-permanent-increase/delete" method="POST">
+        <th:block th:each="mobileDepositPermanentIncrease : ${mobileDepositPermanentIncreaseList}">
+            <label>
+                <input type="checkbox" name="mobileDepositPermanentIncreaseIds" th:value="${mobileDepositPermanentIncrease.id}" />
+                <span th:text="${mobileDepositPermanentIncrease}"></span>
+            </label><br />
+        </th:block>
+
+        <button type="submit">Delete</button>
+    </form>
+</main>
+
+<div><a class="navlink" href="/mobile-deposit-permanent-increase">View Mobile Deposit Permanent Increase Log</a></div>
+<div><a class="navlink" href="/mobile-deposit-permanent-increase">Add Mobile Deposit Permanent Increase</a></div>
+
+</body>
+</html>

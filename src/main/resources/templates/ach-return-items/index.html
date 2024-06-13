@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>ACH Return Items</h3>
+    <p th:unless="${achReturnItemsList} and ${achReturnItemsList.size()}">
+        <em>No ach return items to display.</em>
+    </p>
+    <th:block th:if="${achReturnItemsList} and ${achReturnItemsList.size()}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Originating Company</th>
+                <th>Receiving Company</th>
+                <th>Amount</th>
+                <th>Account</th>
+                <th>Ret Reason Code</th>
+            </tr>
+            </thead>
+            <tr th:each="achReturnItem: ${achReturnItemsList}">
+                <td th:text="${achReturnItem.id}"></td>
+                <td th:text="${achReturnItem.date}"></td>
+                <td th:text="${achReturnItem.originator}"></td>
+                <td th:text="${achReturnItem.receiver}"></td>
+                <td th:text="${achReturnItem.amount}"></td>
+                <td th:text="${achReturnItem.accountStatus}"></td>
+                <td th:text="${achReturnItem.retReasonCode}"></td>
+            </tr>
+        </table>
+    </th:block>
+</main>
+
+<div><a class="navlink" href="/ach-return-items/add">Add ACH Return Item</a></div>
+<div><a class="navlink" href="/ach-return-items/delete">Delete ACH Return Item</a></div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Add ACH Return Item</h3>
+    <form action="/ach-return-items/add" method="POST">
+        <div class="form-item">
+            <label th:for="date">Date </label>
+            <input th:field="${achReturnItems.date}" type="date">
+            <p class="error" th:errors="${achReturnItems.date}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="originator">Originating Company </label>
+            <input th:field="${achReturnItems.originator}">
+            <p class="error" th:errors="${achReturnItems.originator}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="receiver">Receiving Company </label>
+            <input th:field="${achReturnItems.receiver}">
+            <p class="error" th:errors="${achReturnItems.receiver}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="amount">Amount </label>
+            <input th:field="${achReturnItems.amount}">
+            <p class="error" th:errors="${achReturnItems.amount}"></p>
+        </div>
+        <div class="form-item">
+            <div>Account </div>
+            <label th:for="accountStatus">Debit </label>
+            <input th:field="${achReturnItems.accountStatus}" type="radio" value="Debit">
+            <label th:for="accountStatus">Credit </label>
+            <input th:field="${achReturnItems.accountStatus}" type="radio" value="Credit">
+            <p class="error" th:errors="${achReturnItems.accountStatus}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="retReasonCode">Ret Reason Code </label>
+            <input th:field="${achReturnItems.retReasonCode}">
+            <p class="error" th:errors="${achReturnItems.retReasonCode}"></p>
+        </div>
+
+        <button type="submit">Add</button>
+    </form>
+</main>
+
+<div><a class="navlink" href="/ach-return-items">View ACH Return Items</a></div>
+<div><a class="navlink" href="/ach-return-items/delete">Delete ACH Return Item</a></div>
+
+
+</body>
+</html>

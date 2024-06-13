@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Add Mobile Deposit Permanent Increase</h3>
+    <form action="/mobile-deposit-permanent-increase/add" method="POST">
+        <div class="form-item">
+            <label th:for="date">Date </label>
+            <input th:field="${mobileDepositPermIncrease.date}" type="date">
+            <p class="error" th:errors="${mobileDepositPermIncrease.date}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="approvedBy">Approved By </label>
+            <input th:field="${mobileDepositPermIncrease.approvedBy}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.approvedBy}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="accountTitle">Account Title </label>
+            <input th:field="${mobileDepositPermIncrease.accountTitle}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.accountTitle}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="customerName">Customer Name </label>
+            <input th:field="${mobileDepositPermIncrease.customerName}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.customerName}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="username">Username </label>
+            <input th:field="${mobileDepositPermIncrease.username}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.username}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="originalDailyCount">Original Daily Count </label>
+            <input th:field="${mobileDepositPermIncrease.originalDailyCount}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.originalDailyCount}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="newDailyCount">New Daily Count </label>
+            <input th:field="${mobileDepositPermIncrease.newDailyCount}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.newDailyCount}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="originalDailyAmount">Original Daily Amount </label>
+            <input th:field="${mobileDepositPermIncrease.originalDailyAmount}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.originalDailyAmount}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="newDailyAmount">New Daily Amount </label>
+            <input th:field="${mobileDepositPermIncrease.newDailyAmount}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.newDailyAmount}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="originalMonthlyCount">Original Monthly Count </label>
+            <input th:field="${mobileDepositPermIncrease.originalMonthlyCount}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.originalMonthlyCount}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="newMonthlyCount">New Monthly Count </label>
+            <input th:field="${mobileDepositPermIncrease.newMonthlyCount}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.newMonthlyCount}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="originalMonthlyAmount">Original Monthly Amount </label>
+            <input th:field="${mobileDepositPermIncrease.originalMonthlyAmount}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.originalMonthlyAmount}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="newMonthlyAmount">New Monthly Amount </label>
+            <input th:field="${mobileDepositPermIncrease.newMonthlyAmount}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.newMonthlyAmount}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="enteredBy">Entered By </label>
+            <input th:field="${mobileDepositPermIncrease.enteredBy}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.enteredBy}"></p>
+        </div>
+        <div class="form-item">
+            <label th:for="verifiedBy">Verified By </label>
+            <input th:field="${mobileDepositPermIncrease.verifiedBy}">
+            <p class="error" th:errors="${mobileDepositPermIncrease.verifiedBy}"></p>
+        </div>
+        <button type="submit">Add</button>
+    </form>
+</main>
+
+<div><a class="navlink" href="/mobile-deposit-permanent-increase">View Mobile Deposit Permanent Increase Log</a></div>
+<div><a class="navlink" href="/mobile-deposit-permanent-increase/delete">Delete Mobile Deposit Permanent Increase</a></div>
+
+
+</body>
+</html>

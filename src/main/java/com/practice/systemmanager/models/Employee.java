@@ -13,17 +13,20 @@ public class Employee extends AbstractEntity {
 
     private String phoneNumber;
 
+    private String email;
+
     private String address;
 
     public Employee() {
 
     }
 
-    public Employee(String firstName, String lastName, String dateOfBirth, String phoneNumber, String address) {
+    public Employee(String firstName, String lastName, String dateOfBirth, String phoneNumber, String email, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
+        this.email = email;
         this.address = address;
     }
 
@@ -57,6 +60,14 @@ public class Employee extends AbstractEntity {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAddress() {

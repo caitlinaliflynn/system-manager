@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main>
+    <h3>Mobile Deposit Permanent Increase Log</h3>
+    <p th:unless="${mobileDepositPermanentIncreaseList} and ${mobileDepositPermanentIncreaseList.size()}">
+        <em>No credit card transactions to display.</em>
+    </p>
+    <th:block th:if="${mobileDepositPermanentIncreaseList} and ${mobileDepositPermanentIncreaseList.size()}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Approved By</th>
+                <th>Account Title</th>
+                <th>Customer Name</th>
+                <th>Username</th>
+                <th>Original Daily Count</th>
+                <th>New Daily Count</th>
+                <th>Original Daily Amount</th>
+                <th>New Daily Amount</th>
+                <th>Original Monthly Count</th>
+                <th>New Monthly Count</th>
+                <th>Original Monthly Amount</th>
+                <th>New Monthly Amount</th>
+                <th>Employee Taken By</th>
+                <th>Payment Made By</th>
+            </tr>
+            </thead>
+            <tr th:each="mobileDepositPermanentIncrease: ${mobileDepositPermanentIncreaseList}">
+                <td th:text="${mobileDepositPermanentIncrease.id}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.date}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.approvedBy.toUpperCase}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.accountTitle}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.customerName}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.username}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.originalDailyCount}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.newDailyCount}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.originalDailyAmount}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.newDailyAmount}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.originalMonthlyCount}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.newMonthlyCount}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.originalMonthlyAmount}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.newMonthlyAmount}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.enteredBy.toUpperCase}"></td>
+                <td th:text="${mobileDepositPermanentIncrease.verifiedBy.toUpperCase}"></td>
+            </tr>
+        </table>
+    </th:block>
+</main>
+
+<div><a class="navlink" href="/mobile-deposit-permanent-increase/add">Add Mobile Deposit Permanent Increase</a></div>
+<div><a class="navlink" href="/mobile-deposit-permanent-increase/delete">Delete Mobile Deposit Permanent Increase</a></div>
+
+</body>
+</html>
