@@ -44,7 +44,7 @@
         </div>
         <div class="form-item">
             <label th:for="originalDailyAmount">Original Daily Amount </label>
-            <input th:field="${mobileDepositPermIncrease.originalDailyAmount}">
+            <input th:field="${mobileDepositPermIncrease.originalDailyAmount}" id="dollar">
             <p class="error" th:errors="${mobileDepositPermIncrease.originalDailyAmount}"></p>
         </div>
         <div class="form-item">
@@ -91,4 +91,15 @@
 
 
 </body>
+
+<script>
+    let dol = document.querySelector('#dollar');
+
+        dol.addEventListener('keyup', function(e){
+            if (!dol.value.startsWith("$"))
+                dol.value = "$" + dol.value;
+            {
+        }
+    });
+</script>
 </html>

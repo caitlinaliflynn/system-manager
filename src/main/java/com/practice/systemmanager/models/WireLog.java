@@ -12,7 +12,7 @@ public class WireLog extends AbstractEntity {
     @Size(min = 2, max = 100, message = "Account Title must be 2-100 characters long.")
     private String accountTitle;
 
-    private double amount;
+    private String amount;
 
     @NotBlank(message = "OFAC checked by is required.")
     private String ofacCheckedBy;
@@ -38,7 +38,7 @@ public class WireLog extends AbstractEntity {
     public WireLog() {
     }
 
-    public WireLog(String accountTitle, double amount, String ofacCheckedBy, String originatedBy, String timeOriginated, String verifiedBy, String timeVerified, String releasedBy, String timeReleased) {
+    public WireLog(String accountTitle, String amount, String ofacCheckedBy, String originatedBy, String timeOriginated, String verifiedBy, String timeVerified, String releasedBy, String timeReleased) {
         this.accountTitle = accountTitle;
         this.amount = amount;
         this.ofacCheckedBy = ofacCheckedBy;
@@ -58,11 +58,11 @@ public class WireLog extends AbstractEntity {
         this.accountTitle = accountTitle;
     }
 
-    public double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 

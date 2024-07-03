@@ -45,7 +45,7 @@
             </div>
             <div class="form-item">
                 <label th:for="amount">Amount </label>
-                <input th:field="${transferLog.amount}">
+                <input th:field="${transferLog.amount}" id="dollar">
             </div>
             <div class="form-item">
                 <label th:for="employeeTakenBy">Employee Taken By </label>
@@ -66,4 +66,15 @@
 
 
 </body>
+
+<script>
+    let dol = document.querySelector('#dollar');
+
+        dol.addEventListener('keyup', function(e){
+            if (!dol.value.startsWith("$"))
+                dol.value = "$" + dol.value;
+            {
+        }
+    });
+</script>
 </html>

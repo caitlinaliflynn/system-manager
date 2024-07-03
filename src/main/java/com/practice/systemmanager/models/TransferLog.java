@@ -19,11 +19,11 @@ public class TransferLog extends AbstractEntity {
     @NotBlank(message = "Field is required.")
     private String accountStatus;
 
-    private double accountFrom;
+    private String accountFrom;
 
-    private double accountTo;
+    private String accountTo;
 
-    private double amount;
+    private String amount;
 
     private MethodReceivedBy methodReceivedBy;
 
@@ -37,7 +37,7 @@ public class TransferLog extends AbstractEntity {
 
     }
 
-    public TransferLog(String accountTitle, String customerName, String accountStatus, double accountFrom, double accountTo, double amount, String employeeTakenBy, String employeeInputBy, MethodReceivedBy methodReceivedBy) {
+    public TransferLog(String accountTitle, String customerName, String accountStatus, String accountFrom, String accountTo, String amount, String employeeTakenBy, String employeeInputBy, MethodReceivedBy methodReceivedBy) {
         this.accountTitle = accountTitle;
         this.customerName = customerName;
         this.accountStatus = accountStatus;
@@ -73,27 +73,27 @@ public class TransferLog extends AbstractEntity {
         this.accountStatus = accountStatus;
     }
 
-    public double getAccountFrom() {
+    public String getAccountFrom() {
         return accountFrom;
     }
 
-    public void setAccountFrom(double accountFrom) {
+    public void setAccountFrom(String accountFrom) {
         this.accountFrom = accountFrom;
     }
 
-    public double getAccountTo() {
+    public String getAccountTo() {
         return accountTo;
     }
 
-    public void setAccountTo(double accountTo) {
+    public void setAccountTo(String accountTo) {
         this.accountTo = accountTo;
     }
 
-    public double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 

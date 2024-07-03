@@ -14,7 +14,7 @@
             </div>
             <div class="form-item">
                 <label th:for="amount">Amount </label>
-                <input th:field="${wireLog.amount}">
+                <input th:field="${wireLog.amount}" id="dollar">
                 <p class="error" th:errors="${wireLog.amount}"></p>
             </div>
             <div class="form-item">
@@ -60,4 +60,15 @@
     <div><a class="navlink" href="/wire-log/delete">Delete Wires</a></div>
 
 </body>
+
+<script>
+    let dol = document.querySelector('#dollar');
+
+        dol.addEventListener('keyup', function(e){
+            if (!dol.value.startsWith("$"))
+                dol.value = "$" + dol.value;
+            {
+        }
+    });
+</script>
 </html>

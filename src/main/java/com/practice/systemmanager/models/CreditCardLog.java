@@ -11,9 +11,9 @@ public class CreditCardLog extends AbstractEntity {
     @Size(min = 2, max = 100, message = "Customer Name must be 2-100 characters long.")
     private String customerName;
 
-    private double cardNumber;
+    private String cardNumber;
 
-    private double amount;
+    private String amount;
 
     private PaymentType paymentType;
 
@@ -26,7 +26,7 @@ public class CreditCardLog extends AbstractEntity {
 
     }
 
-    public CreditCardLog(String customerName, double cardNumber, double amount, PaymentType paymentType, String employeeTakenBy, String paymentMadeBy) {
+    public CreditCardLog(String customerName, String cardNumber, String amount, PaymentType paymentType, String employeeTakenBy, String paymentMadeBy) {
         this.customerName = customerName;
         this.cardNumber = cardNumber;
         this.amount = amount;
@@ -43,19 +43,19 @@ public class CreditCardLog extends AbstractEntity {
         this.customerName = customerName;
     }
 
-    public double getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(double cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
-    public double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 

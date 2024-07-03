@@ -18,7 +18,7 @@
         </div>
         <div class="form-item">
             <label th:for="amount">Amount </label>
-            <input th:field="${creditCardLog.amount}">
+            <input th:field="${creditCardLog.amount}" id="dollar">
         </div>
         <div>
             <label>Payment Type
@@ -49,4 +49,15 @@
 
 
 </body>
+
+<script>
+    let dol = document.querySelector('#dollar');
+
+        dol.addEventListener('keyup', function(e){
+            if (!dol.value.startsWith("$"))
+                dol.value = "$" + dol.value;
+            {
+        }
+    });
+</script>
 </html>

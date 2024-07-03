@@ -24,11 +24,10 @@
         </div>
         <div class="form-item">
             <label th:for="amount">Amount </label>
-            <input th:field="${achReturnItems.amount}">
+            <input th:field="${achReturnItems.amount}" id="dollar">
             <p class="error" th:errors="${achReturnItems.amount}"></p>
         </div>
         <div class="form-item">
-            <div>Account </div>
             <label th:for="accountStatus">Debit </label>
             <input th:field="${achReturnItems.accountStatus}" type="radio" value="Debit">
             <label th:for="accountStatus">Credit </label>
@@ -50,4 +49,15 @@
 
 
 </body>
+
+<script>
+    let dol = document.querySelector('#dollar');
+
+        dol.addEventListener('keyup', function(e){
+            if (!dol.value.startsWith("$"))
+                dol.value = "$" + dol.value;
+            {
+        }
+    });
+</script>
 </html>
