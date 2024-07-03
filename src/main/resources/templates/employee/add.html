@@ -24,7 +24,7 @@
         </div>
         <div class="form-item">
             <label th:for="phoneNumber">Phone Number </label>
-            <input th:field="${employee.phoneNumber}" type="tel">
+            <input th:field="${employee.phoneNumber}" type="tel" id="telle" maxlength="12">
             <p class="error" th:errors="${employee.phoneNumber}"></p>
         </div>
         <div class="form-item">
@@ -46,4 +46,14 @@
 
 
 </body>
+
+<script>
+    var tele = document.querySelector('#telle');
+
+        tele.addEventListener('keyup', function(e){
+            if (event.key != 'Backspace' && (tele.value.length === 3 || tele.value.length === 7)){
+            tele.value += '-';
+        }
+            });
+</script>
 </html>
