@@ -6,7 +6,7 @@
 
 <main>
     <h3>Add Mobile Deposit Permanent Increase</h3>
-    <form action="/mobile-deposit-permanent-increase/add" method="POST">
+    <form action="/mobile-deposit-permanent-increase/add" method="POST" id="my-Form">
         <div class="form-item">
             <label th:for="date">Date </label>
             <input th:field="${mobileDepositPermIncrease.date}" type="date">
@@ -43,13 +43,13 @@
             <p class="error" th:errors="${mobileDepositPermIncrease.newDailyCount}"></p>
         </div>
         <div class="form-item">
-            <label th:for="originalDailyAmount">Original Daily Amount </label>
-            <input th:field="${mobileDepositPermIncrease.originalDailyAmount}" id="dollar">
+            <label th:for="originalDailyAmount">Original Daily $ Amount </label>
+            <input th:field="${mobileDepositPermIncrease.originalDailyAmount}" data-money-field="true" type="text" required>
             <p class="error" th:errors="${mobileDepositPermIncrease.originalDailyAmount}"></p>
         </div>
         <div class="form-item">
-            <label th:for="newDailyAmount">New Daily Amount </label>
-            <input th:field="${mobileDepositPermIncrease.newDailyAmount}">
+            <label th:for="newDailyAmount">New Daily $ Amount </label>
+            <input th:field="${mobileDepositPermIncrease.newDailyAmount}" data-money-field="true" type="text" required>
             <p class="error" th:errors="${mobileDepositPermIncrease.newDailyAmount}"></p>
         </div>
         <div class="form-item">
@@ -63,13 +63,13 @@
             <p class="error" th:errors="${mobileDepositPermIncrease.newMonthlyCount}"></p>
         </div>
         <div class="form-item">
-            <label th:for="originalMonthlyAmount">Original Monthly Amount </label>
-            <input th:field="${mobileDepositPermIncrease.originalMonthlyAmount}">
+            <label th:for="originalMonthlyAmount">Original Monthly $ Amount </label>
+            <input th:field="${mobileDepositPermIncrease.originalMonthlyAmount}" data-money-field="true" type="text" required>
             <p class="error" th:errors="${mobileDepositPermIncrease.originalMonthlyAmount}"></p>
         </div>
         <div class="form-item">
-            <label th:for="newMonthlyAmount">New Monthly Amount </label>
-            <input th:field="${mobileDepositPermIncrease.newMonthlyAmount}">
+            <label th:for="newMonthlyAmount">New Monthly $ Amount </label>
+            <input th:field="${mobileDepositPermIncrease.newMonthlyAmount}" data-money-field="true" type="text" required>
             <p class="error" th:errors="${mobileDepositPermIncrease.newMonthlyAmount}"></p>
         </div>
         <div class="form-item">
@@ -93,13 +93,25 @@
 </body>
 
 <script>
-    let dol = document.querySelector('#dollar');
+const myForm = document.querySelector('#my-Form');
 
-        dol.addEventListener('keyup', function(e){
-            if (!dol.value.startsWith("$"))
-                dol.value = "$" + dol.value;
-            {
-        }
-    });
+myForm.addEventListener('input', e => {
+  if (e.target.matches('[data-money-field]') && !e.target.value.startsWith('$')) {
+    e.target.value = "$" + e.target.value.trim();
+
+    if (e.target.value === '$') {
+      e.target.value = '';
+    }
+  }
+});
+
+myForm.addEventListener('submit', e => {
+
+  console.clear();
+  const moneyFields = myForm.querySelectorAll('[data-money-field]');
+  moneyFields.forEach(field => {
+    console.log(`${field.name} = ${field.value}`);
+  });
+});
 </script>
 </html>

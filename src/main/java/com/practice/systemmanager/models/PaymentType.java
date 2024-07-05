@@ -7,7 +7,9 @@ public enum PaymentType {
     DDA("DDA"),
     OTE("OTE"),
     SAVINGS("Savings"),
-    AOC("AOC");
+    AOC("AOC"),
+
+    OTHER("Other");
 
     private final String displayName;
 
